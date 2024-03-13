@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: attu
+  name: milvus-attu
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: attu
+  template:
+    metadata:
+      labels:
+        app: attu
+    spec:
+      containers:
+        - image: zilliz/attu:dev
+          imagePullPolicy: Always
+          name: attu
+          ports:
+            - containerPort: 3000
+              name: attu
+              protocol: TCP
+      restartPolicy: Always

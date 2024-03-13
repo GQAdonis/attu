@@ -1,0 +1,8 @@
+version: "3"
+services:
+  milvus-attu:
+    platform: linux/arm64
+    image: zilliz/attu:dev
+    restart: always
+    ports:
+      - "3000:3000"
